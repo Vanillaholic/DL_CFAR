@@ -188,11 +188,11 @@ if __name__ == '__main__':
     optimizer = optim.Adam(model.parameters(), lr=args.lr,momentum=0.9, weight_decay=5e-4)
 
     #TODO 此处加载数据集(由于缺失数据,此处待完成)
-    trainset = MatDataset('training_input.mat', 'training_label.mat')
-    testset = MatDataset('validation_input.mat', 'validation_label.mat')
+    train_set = MatDataset('training_input.mat', 'training_label.mat')
+    test_set = MatDataset('validation_input.mat', 'validation_label.mat')
 
-    trainloader = DataLoader( trainset, batch_size=128, shuffle=True) #读取数据trainset
-    testloader = torch.utils.data.DataLoader(testset, batch_size=100, shuffle=False)  #shuffle=False 不保证顺序
+    trainloader = DataLoader( train_set, batch_size=128, shuffle=True) #读取数据trainset
+    testloader = torch.utils.data.DataLoader(test_set, batch_size=100, shuffle=False)  #shuffle=False 不保证顺序
 
     #TODO 判断是否需要从 checkpoint 恢复模型
     start_epoch = 0  # start from epoch 0 or last checkpoint epoch
